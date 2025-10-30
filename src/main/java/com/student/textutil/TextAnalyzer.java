@@ -25,6 +25,14 @@ public class TextAnalyzer {
             System.out.println("Слов: " + wordCount);
             System.out.println("Программа завершена успешно!");
 
+            try {
+                String result = "Строк: " + lineCount + "\nСлов: " + wordCount;
+                Files.write(Paths.get("stats.txt"), result.getBytes());
+                System.out.println("Результаты сохранены в stats.txt");
+            } catch (IOException e) {
+                System.out.println("Ошибка сохранения файла");
+            }
+
         } catch (IOException e) {
             System.out.println("Ошибка: файл test.txt не найден!");
         }
